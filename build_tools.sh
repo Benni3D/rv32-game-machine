@@ -57,9 +57,11 @@ echo "Building libgcc..." >&2
 nice -n1 make -j$(nproc) all-target-libgcc 2>&1
 [ $? -ne 0 ] && echo "Failed to build libgcc" >&2 && exit 1
 
-echo "Installing GCC & libgcc..." >&2
-sudo make install install-gcc install-target-libgcc
+echo "Installing GCC..." >&2
+sudo make install install-gcc 
 [ $? -ne 0 ] && echo "Failed to install gcc" >&2 && exit 1
+sudo make install-target-libgcc
+[ $? -ne 0 ] && echo "Failed to install libgcc" >&2 && exit 1
 popd
 
 popd

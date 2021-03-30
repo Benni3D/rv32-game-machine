@@ -23,6 +23,6 @@ obj/%.o: src/%.s
 	$(AS) -o $@ $< $(ASFLAGS)
 
 clean:
-	rm -rf obj libc.a
+	rm -rf obj crt0.o libc.a
 
 .PHONY: all clean
